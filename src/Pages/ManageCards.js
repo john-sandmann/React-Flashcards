@@ -25,7 +25,7 @@ class ManageCards extends Component {
 
     renderRedirectToDisplayCards() {
         if (this.state.renderRedirectToDisplayCards) {
-            return <Redirect to='/' />
+            return <Redirect to='/React-Flashcards' />
         }
     }
 

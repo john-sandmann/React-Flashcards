@@ -10,7 +10,7 @@ import './Sass/index.scss';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={DisplayCards}/>
+      <Route exact path="/React-Flashcards" component={DisplayCards}/>
       <Route exact path="/ManageCards" component={ManageCards}/>
     </Switch>
   </BrowserRouter>,
