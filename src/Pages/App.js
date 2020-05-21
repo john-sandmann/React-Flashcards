@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Sass/DisplayCards.scss';
 import '../Sass/ManageCards.scss';
-import { Redirect } from 'react-router-dom';
 
 class DisplayCards extends Component {
 
@@ -30,7 +29,13 @@ class DisplayCards extends Component {
   }
 
   componentDidMount() {
-    this.setState({ cards: JSON.parse(localStorage.getItem('cards')) }, this.setState({ shouldRenderCards: true }));
+    if (localStorage.getItem('cards')) {
+      this.setState({ cards: JSON.parse(localStorage.getItem('cards')) }, () => this.setState({ shouldRenderCards: true }));
+    }
+    else {
+      localStorage.setItem('cards', JSON.stringify([]));
+      this.setState({ cards: JSON.parse(localStorage.getItem('cards')) }, () => this.setState({ shouldRenderCards: true }));
+    }
   }
 
   renderStartOptions() {
@@ -201,7 +206,13 @@ class ManageCards extends Component {
   }
 
   componentDidMount() {
-    this.setState({ cards: JSON.parse(localStorage.getItem('cards')) });
+    if (localStorage.getItem('cards')) {
+      this.setState({ cards: JSON.parse(localStorage.getItem('cards')) });
+    }
+    else {
+      localStorage.setItem('cards', JSON.stringify([]));
+      this.setState({ cards: JSON.parse(localStorage.getItem('cards')) });
+    }
   }
 
   handleSubmit(e) {
