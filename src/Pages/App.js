@@ -88,9 +88,9 @@ class DisplayCards extends Component {
     }
 
     if (this.state.shouldRenderCards) {
-      let card = this.state.cards[this.state.currentCard];
       if (this.state.gameHasStarted) {
         if (this.state.cards[0]) {
+          let card = this.state.cards[this.state.currentCard];
           return <div className="card">
             <h1>{this.state.showAnswer ? card.resposta : card.pergunta}</h1>
             <button onClick={() => this.setState({ showAnswer: true })}>
